@@ -1,0 +1,47 @@
+
+
+buildscript{
+    repositories{
+        mavenCentral()
+    }
+    dependencies{
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'scala'
+    id 'application'
+    id 'idea'
+    id 'org.springframework.boot' version '2.1.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
+
+bootJar{
+    baseName = 'gradle-test'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    //spring boot
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-logging"
+    }
+    compile("org.springframework.boot:spring-boot-starter-data-redis")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+
+    //spark
+    compile("org.apache.spark:spark-core_2.12:2.4.3")
+}
+
+
