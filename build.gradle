@@ -19,7 +19,7 @@ plugins {
 }
 
 bootJar{
-    baseName = 'gradle-test'
+    baseName = 'orderNow'
     version = '0.1.0'
 }
 
@@ -35,13 +35,15 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web") {
         exclude module: "spring-boot-starter-logging"
     }
-    compile("org.springframework.boot:spring-boot-starter-data-redis")
+//    compile("org.springframework.boot:spring-boot-starter-data-redis")
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile("org.springframework.boot:spring-boot-starter-jetty")
-    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("com.h2database:h2")
+    compile("org.json:json:20171018")
 
-    //spark
-    compile("org.apache.spark:spark-core_2.12:2.4.3")
+//    //spark
+//    compile("org.apache.spark:spark-core_2.12:2.4.3")
 }
 
 

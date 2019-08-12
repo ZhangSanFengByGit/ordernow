@@ -1,18 +1,27 @@
 package ordernow.domain;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.*;
 
+@Entity
 public class CustomerAccount {
     @Id
-    public String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long id;
 
     public String phoneNumber;
     public String password;
 
-    public CustomerAccount(){}
+    public CustomerAccount(){super();}
 
     public CustomerAccount(String phoneNumber, String password){
+        super();
         this.phoneNumber = phoneNumber;
         this.password = password;
+    }
+
+    @Override
+    public String toString(){
+        String ret = "phoneNumbe:"+phoneNumber+", password:"+password;
+        return ret;
     }
 }

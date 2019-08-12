@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MainPageController {
 
-
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/")
     public ResponseEntity<?> mainPageResponse(){
-        String stringResponse = "Hello costumer";
+        String stringResponse = "Hello, please use correct source path to get corresponding services.";
         return ResponseEntity.ok().contentType(MediaType.TEXT_PLAIN)
                 .body(stringResponse);
     }
